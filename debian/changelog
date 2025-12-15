@@ -1,5 +1,49 @@
-template-repository (1.0-1) unstable; urgency=medium
+bpftune (0.0~git20251206.4bcc284-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 0.0~git20251206.4bcc284
+    - Update symbols.
+    - Update lintian override.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Sun, 07 Dec 2025 17:01:52 +0000
+
+bpftune (0.0~git20250723.5966387-1) unstable; urgency=medium
+
+  * New upstream version 0.0~git20250723.5966387
+    - Update lintian overrides.
+    - Update symbols.
+  * Update Standards-Version to 4.7.2
+  * Add new package for pcp-pmda-bpftune.
+    - Add new lintian overrides for pcp interpreter.
+    - Fix permission of README.
+  * Remove old fsf address from d/copyright.
+  * Update copyright.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Mon, 01 Sep 2025 19:04:08 +0100
+
+bpftune (0.0~git20250314.8fd59cc-1) unstable; urgency=medium
+
+  [ Bernd Zeimetz ]
+  ** SNAPSHOT build @126642eb27cb81198d95974b3942478f7b2fd457 **
+
+  * [c668e88] New upstream version 0.0~git20250312.6de24b9
+  * Snapshot changelog
+
+  [ Sudip Mukherjee ]
+  * New upstream version 0.0~git20250314.8fd59cc
+    - Update symbols.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Mon, 17 Mar 2025 17:29:23 +0000
+
+bpftune (0.0~git20250121.d38eac6-1) unstable; urgency=medium
+
+  * New upstream version 0.0~git20250121.d38eac6
+    - Update symbols.
+  * find bpftool in Ubuntu.
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Fri, 14 Feb 2025 19:58:52 +0000
+
+bpftune (0.0~git20241205.2a8d043-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #1087756)
+
+ -- Sudip Mukherjee <sudipm.mukherjee@gmail.com>  Thu, 12 Dec 2024 12:56:12 +0000
