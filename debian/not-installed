@@ -1,0 +1,3 @@
+etc/ld.so.conf.d/libbpftune.conf
+etc/conf.d/bpftune
+etc/init.d/bpftune
