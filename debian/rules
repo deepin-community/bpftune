@@ -1,4 +1,41 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+export libdir=lib/$(DEB_HOST_MULTIARCH)
+
+# On Ubuntu, the `bpftool` in path is a shell wrapper pointing at
+# the binary corresponding to runtime kernel version.
+#
+# We do not know the kernel version being used on the system building
+# this package, and in sbuild/container environments uname might not
+# even match anything available to the build.
+# Gladly for the build we only need the tool to generate skeleton code.
+#
+# If any /usr/lib/linux-tools/*/bpftool exists, locate the most recent
+# version and point to that, otherwise `bpftool` from PATH will be
+# used.
+bpftool_binary := $(shell find -L /usr/lib/linux-tools/ -name 'bpftool' -perm /u=x 2>/dev/null | sort | head -n1)
+ifneq ($(bpftool_binary),)
+export BPFTOOL=$(bpftool_binary)
+endif
+
 %:
 	dh $@
+
+clean:
+	dh $@
+	rm -f src/*.plist
+
+override_dh_auto_test:
+	# no test for now, needs root and more magic.
+
+override_dh_auto_install:
+	dh_auto_install
+	for sopath in $$(find debian -name 'libbpftune.so'); do \
+		ln -sf $$(basename $$sopath.*) $$sopath ; \
+	done
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod 0644 debian/pcp-pmda-bpftune/var/lib/pcp/pmdas/bpftune/README

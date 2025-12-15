@@ -1,0 +1,17 @@
+Description: do not use /usr/local/
+
+Forwarded: not-needed
+Last-Update: 2024-12-12
+---
+
+--- bpftune-0.0~git20241205.2a8d043.orig/include/bpftune/libbpftune.h
++++ bpftune-0.0~git20241205.2a8d043/include/bpftune/libbpftune.h
+@@ -54,7 +54,7 @@
+ /* default /usr/lib64/bpftune */
+ #define BPFTUNER_LIB_DIR		BPFTUNER_PREFIX_DIR "/" LIB_DIR "/bpftune/"
+ /* default /usr/local/lib64/bpftune */
+-#define BPFTUNER_LOCAL_LIB_DIR		BPFTUNER_PREFIX_DIR "/local/" LIB_DIR "/bpftune/"
++#define BPFTUNER_LOCAL_LIB_DIR		BPFTUNER_PREFIX_DIR "/" LIB_DIR "/bpftune/"
+ #define BPFTUNER_LIB_SUFFIX		"_tuner.so"
+ 
+ #define BPFTUNE_PROC_SYS		"/proc/sys/"
